@@ -1,7 +1,7 @@
 {
     "name": "speedometer",
     "productName": "Speedometer",
-    "version": "1.0.2",
+    "version": "1.0.0",
     "description": "Speedometer (Imperial Innovation TZ)",
     "main": "src/main.js",
     "scripts": {

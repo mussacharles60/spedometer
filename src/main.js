@@ -340,15 +340,22 @@ const createWindow = () => {
                 mainWindow.webContents.send('on-serial-open', 'do-it');
             });
 
-            parser.on('data', data => {
+            parser.on('data', var1 => {
                 // console.log('serial-data: received: ', data);
                 try {
-                    data = data + "";
-                    var temp_data = parseInt(data);
-                    if (temp_data != NaN) {
-                        // console.log("data: " + temp_data);
-                        // code...
-                        mainWindow.webContents.send('on-serial-data', temp_data);
+                    const data = var1 + "";
+                    if (data.indexOf("start") >= 0) {
+                        mainWindow.webContents.send('on-device-start-click', temp_data);
+                        return;
+                    }
+                    // check if data contains numbers
+                    if (data.match(/\d/g)) {
+                        var temp_data = parseInt(data);
+                        if (temp_data != NaN) {
+                            // console.log("data: " + temp_data);
+                            // code...
+                            mainWindow.webContents.send('on-serial-data', temp_data);
+                        }
                     }
                 } catch (err) {
                     console.log('serial-data: error: ', err.message);

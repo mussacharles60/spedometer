@@ -48,4 +48,13 @@ void loop() {
   } else {
     counter = 0.0;
   }
+
+  if (digitalRead(BUTTON) == 0) {
+    if (!should_send) {
+      delay(1000);
+      if (digitalRead(BUTTON) == 1) {
+        Serial.println("start");
+      }
+    }
+  }
 }
