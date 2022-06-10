@@ -44,6 +44,7 @@ const createWindow = () => {
         }).catch(err => {
             console.log(err);
         });
+        // mainWindow.webContents.openDevTools(); // Open the DevTools.
     });
 
     // listen when window is maximized

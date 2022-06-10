@@ -186,6 +186,27 @@ body {
     padding: 16px;
 }
 
+.gauges-container {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.gauge {
+    width: (50% - 16px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 16px 0 16px;
+}
+
 #output-text {
     width: auto;
     height: auto;

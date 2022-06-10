@@ -1,8 +1,8 @@
 {
-    "name": "spedometer",
-    "productName": "Spedometer",
+    "name": "speedometer",
+    "productName": "Speedometer",
     "version": "1.0.2",
-    "description": "Spedometer (Imperial Innovation TZ)",
+    "description": "Speedometer (Imperial Innovation TZ)",
     "main": "src/main.js",
     "scripts": {
         "start": "electron-forge start",
@@ -15,10 +15,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@github.com:mussacharles60/spedometer.git"
+        "url": "git@github.com:mussacharles60/speedometer.git"
     },
     "build": {
-        "appId": "spedometer",
+        "appId": "speedometer",
         "buildDependenciesFromSource": true,
         "asar": true,
         "win": {
@@ -30,14 +30,14 @@
         "nsis": {
             "installerIcon": "src/icon.ico",
             "uninstallerIcon": "src/icon.ico",
-            "uninstallDisplayName": "Spedometer",
+            "uninstallDisplayName": "Speedometer",
             "license": "license.txt",
             "oneClick": false,
             "allowToChangeInstallationDirectory": true
         }
     },
     "keywords": [
-        "Spedometer",
+        "Speedometer",
         "commercial product",
         "interactive contents",
         "imperial innovations",
@@ -52,7 +52,7 @@
                 {
                     "name": "@electron-forge/maker-squirrel",
                     "config": {
-                        "name": "Spedometer"
+                        "name": "Speedometer"
                     }
                 },
                 {

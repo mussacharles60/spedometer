@@ -39,6 +39,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $('#output-container').hide();
 
+    $("#gauge-1").speedometer({
+        divFact: 10,
+        eventListenerType: 'keyup',
+        maxVal: 200,
+        dangerLevel: 140,
+        gagueLabel: 'km/h',
+    });
+    $("#gauge-2").speedometer({
+        divFact: 10,
+        eventListenerType: 'keyup',
+        maxVal: 200,
+        dangerLevel: 140,
+        gagueLabel: 'km/h',
+    });
+
     document.onkeydown = function (evt) {
         evt = evt || window.event;
         var isEscape = false;
@@ -74,10 +89,17 @@ ipcRenderer.on('on-serial-open', () => {
     $('#status').text('Connected');
     $('#first').hide();
     $('#output-container').show();
+    $('#gauges-container').hide();
     $('#play-btn').on('click', () => {
         started = true;
+        $('#play-btn').hide();
+        $('#gauges-container').show();
         ipcRenderer.send('on-start-device-click', 'do-it');
     });
+    // $('#stop-btn').on('click', () => {
+    //     started = false;
+    //     ipcRenderer.send('on-stop-device-click', 'do-it');
+    // });
 });
 
 ipcRenderer.on('on-serial-close', () => {
@@ -86,6 +108,8 @@ ipcRenderer.on('on-serial-close', () => {
     $('#status').text('Not Connected');
     $('#first').hide();
     $('#output-container').hide();
+    $('#play-btn').show();
+    $('#gauges-container').hide();
 });
 
 ipcRenderer.on('on-serial-data', (_event, data) => {
@@ -93,6 +117,8 @@ ipcRenderer.on('on-serial-data', (_event, data) => {
         return;
     }
     $('#output-container').show();
+    $('#play-btn').hide();
+    $('#gauges-container').show();
     console.log("on-serial-data:", data);
     // $('#output-text').text(data);
     // beep();
